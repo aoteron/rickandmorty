@@ -1,5 +1,5 @@
 //Episodes
-interface Episode {
+export interface Episode {
     name: string;
     air_date: string;
     episode: string;
@@ -18,7 +18,7 @@ enum CharacterGender {
     Unknown = "Unknown",
 }
 
-interface Character {
+export interface Character {
     name: string;
     status: CharacterStatus;
     species: string;
@@ -28,7 +28,7 @@ interface Character {
 }
 
 //Locations
-interface Location {
+export interface Location {
     name: string;
     type: string;
     dimension: string;
@@ -41,7 +41,7 @@ enum PaginationAction {
     Loading = "Loading",
 }
 
-interface PaginatedResponse<T> {
+export interface PaginatedResponse<T> {
     info: {
         count: number;
         pages: number;
@@ -50,24 +50,3 @@ interface PaginatedResponse<T> {
     };
     results: T[];
 }
-
-//Fetching the data from the API
-async function fetchEpisodesData() {
-    const apiUrl = 'https://rickandmortyapi.com/api/episodes';
-    
-    try {
-        const response = await fetch(apiUrl);
-
-        if(!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-
-        const data = await response.json();
-
-        console.log(data);
-    } catch (error) {
-        console.error('Error:', error);
-    }
-}
-
-fetchEpisodesData();
