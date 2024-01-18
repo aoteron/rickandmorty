@@ -50,3 +50,24 @@ interface PaginatedResponse<T> {
     };
     results: T[];
 }
+
+//Fetching the data from the API
+async function fetchEpisodesData() {
+    const apiUrl = 'https://rickandmortyapi.com/api/episodes';
+    
+    try {
+        const response = await fetch(apiUrl);
+
+        if(!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+
+        const data = await response.json();
+
+        console.log(data);
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+fetchEpisodesData();
