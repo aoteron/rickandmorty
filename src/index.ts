@@ -1,7 +1,52 @@
-let mensaje: string = "Chanchito feliz me enseña TypeScript"
+//Episodes
+interface Episode {
+    name: string;
+    air_date: string;
+    episode: string;
+}
 
-mensaje = "chanchito triste"
+//Characters
+enum CharacterStatus {
+    Alive = "Alive",
+    Dead = "Dead",
+    Unknow = "Unknown",
+}
 
-console.log(mensaje);
+enum CharacterGender {
+    Male = "Male",
+    Female = "Female",
+    Unknown = "Unknown",
+}
 
-mensaje = "chanchito feliz"
+interface Character {
+    name: string;
+    status: CharacterStatus;
+    species: string;
+    type?: string;
+    gender: CharacterGender;
+    image: string;
+}
+
+//Locations
+interface Location {
+    name: string;
+    type: string;
+    dimension: string;
+}
+
+//Pagination
+enum PaginationAction {
+    Next = "Next",
+    Previous = "Previous",
+    Loading = "Loading",
+}
+
+interface PaginatedResponse<T> {
+    info: {
+        count: number;
+        pages: number;
+        next: string;
+        prev: string;
+    };
+    results: T[];
+}
