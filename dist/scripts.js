@@ -1,25 +1,63 @@
-const urlRMAPI = 'https://rickandmortyapi.com/api/episode';
-const mainContainer = document.getElementById('mainContainer');
-const btnLoadEpisodes = document.getElementById('loadMoreEpisodes');
-const getEpisodeData = function () {
-    fetch(`https://rickandmortyapi.com/api/episode/`)
-        .then(response => response.json())
-        .then(data => {
-        const episodes = data.results;
-        episodes.forEach(episode => {
-            const episodeName = episode.name;
-            renderEpisodes(episodeName);
-        });
-    })
-        .catch(err => {
-        console.error(`${err}`);
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-getEpisodeData();
-function renderEpisodes(episodeName) {
-    const renderMainContainerWithEpisodes = document.createElement("li");
-    renderMainContainerWithEpisodes.textContent = episodeName;
-    mainContainer.appendChild(renderMainContainerWithEpisodes);
+const urlEpisodes = 'https://rickandmortyapi.com/api/episode';
+const episodesList = document.getElementById('episodeList');
+const nextBtn = document.getElementById('loadMoreEpisodes');
+printTitle(urlEpisodes);
+function printTitle(url) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const data = yield fetch(url);
+        const JSONdata = yield data.json();
+        const episodes = JSONdata.results;
+        episodes.forEach((episode) => {
+            episodesList.insertAdjacentHTML('beforeend', `<li id='${episode.episode}' elementURL='${episode.url}'> ${episode.name}</li>`);
+            const clickEpisode = document.getElementById(`${episode.episode}`);
+            clickEpisode.addEventListener('click', printInfoEpi);
+        });
+        if (JSONdata.info.next) {
+            nextBtn.addEventListener('click', () => {
+                printTitle(JSONdata.info.next);
+            }, { once: true });
+        }
+        else {
+            nextBtn.remove();
+        }
+    });
+}
+function printInfoEpi(click) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const target = click.target;
+        const urlEpisode = target.getAttribute("elementURL");
+        const dataEpisode = yield fetch(urlEpisode);
+        const episodeInfo = yield dataEpisode.json();
+        const displayEpisodeInfo = `
+        <p>${episodeInfo.name}</p>
+        <p>${episodeInfo.air_date}</p>
+        <p>${episodeInfo.episode}</p>
+        `;
+        const renderEpisodeInfo = document.getElementById("sectionContainer");
+        renderEpisodeInfo.innerHTML = displayEpisodeInfo;
+        const characters = episodeInfo.characters;
+        characters.forEach((urlCharacter) => __awaiter(this, void 0, void 0, function* () {
+            const dataCharacter = yield fetch(urlCharacter);
+            const characterInfo = yield dataCharacter.json();
+            const renderCharacterInfo = `
+            <p>${characterInfo.name}</p>
+            <p>${characterInfo.status}</p>
+            <p>${characterInfo.species}</p>
+            <p>${characterInfo.gender}</p>
+            <img src="${characterInfo.image}">
+            `;
+            renderEpisodeInfo.insertAdjacentHTML("beforeend", renderCharacterInfo);
+        }));
+    });
 }
 export {};
 //# sourceMappingURL=scripts.js.map

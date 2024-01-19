@@ -10,11 +10,5 @@ var CharacterGender;
     CharacterGender["Female"] = "Female";
     CharacterGender["Unknown"] = "Unknown";
 })(CharacterGender || (CharacterGender = {}));
-var PaginationAction;
-(function (PaginationAction) {
-    PaginationAction["Next"] = "Next";
-    PaginationAction["Previous"] = "Previous";
-    PaginationAction["Loading"] = "Loading";
-})(PaginationAction || (PaginationAction = {}));
 export {};
 //# sourceMappingURL=interfaces.js.map
