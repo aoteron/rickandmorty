@@ -1,5 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 var CharacterStatus;
 (function (CharacterStatus) {
     CharacterStatus["Alive"] = "Alive";
@@ -18,4 +16,5 @@ var PaginationAction;
     PaginationAction["Previous"] = "Previous";
     PaginationAction["Loading"] = "Loading";
 })(PaginationAction || (PaginationAction = {}));
+export {};
 //# sourceMappingURL=interfaces.js.map

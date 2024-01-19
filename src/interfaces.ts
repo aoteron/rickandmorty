@@ -41,12 +41,12 @@ enum PaginationAction {
     Loading = "Loading",
 }
 
-export interface PaginatedResponse<T> {
+export interface PaginatedResponse {
     info: {
         count: number;
         pages: number;
         next: string;
         prev: string;
     };
-    results: T[];
+    results: Episode[];
 }
