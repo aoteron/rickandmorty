@@ -77,6 +77,15 @@ export interface InfoAPI {
   }
 
   //Characters
+export interface Character {
+    name: string;
+    status: CharacterStatus;
+    species: string;
+    // type: string;
+    gender: CharacterGender;
+    image: string;
+}
+
 enum CharacterStatus {
     Alive = "Alive",
     Dead = "Dead",
@@ -87,13 +96,4 @@ enum CharacterGender {
     Male = "Male",
     Female = "Female",
     Unknown = "Unknown",
-}
-
-export interface Character {
-    name: string;
-    status: CharacterStatus;
-    species: string;
-    type: string;
-    gender: CharacterGender;
-    image: string;
 }
