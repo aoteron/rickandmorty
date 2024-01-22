@@ -38,9 +38,11 @@ function printInfoEpi(click) {
         const dataEpisode = yield fetch(urlEpisode);
         const episodeInfo = yield dataEpisode.json();
         const displayEpisodeInfo = `
-        <p>${episodeInfo.name}</p>
+        <div class="episode-info">
+        <h1>${episodeInfo.name}</h1>
         <p>${episodeInfo.air_date}</p>
         <p>${episodeInfo.episode}</p>
+        </div>
         `;
         const renderEpisodeInfo = document.getElementById("sectionContainer");
         renderEpisodeInfo.innerHTML = displayEpisodeInfo;
@@ -49,11 +51,13 @@ function printInfoEpi(click) {
             const dataCharacter = yield fetch(urlCharacter);
             const characterInfo = yield dataCharacter.json();
             const renderCharacterInfo = `
-            <p>${characterInfo.name}</p>
-            <p>${characterInfo.status}</p>
-            <p>${characterInfo.species}</p>
+            <div class="character-info">
+            <h3>${characterInfo.name}</h3>
+            <span>${characterInfo.status}</span>
+            <span>${characterInfo.species}</span>
             <p>${characterInfo.gender}</p>
             <img src=${characterInfo.image}>
+            </div>
             `;
             renderEpisodeInfo.insertAdjacentHTML("beforeend", renderCharacterInfo);
         }));

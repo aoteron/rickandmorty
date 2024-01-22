@@ -38,9 +38,11 @@ async function printInfoEpi(click:MouseEvent) {
     const dataEpisode = await fetch(urlEpisode); //Llamamos a la api
     const episodeInfo: Episode = await dataEpisode.json(); //La hacemos legible
     const displayEpisodeInfo = `
-        <p>${episodeInfo.name}</p>
+        <div class="episode-info">
+        <h1>${episodeInfo.name}</h1>
         <p>${episodeInfo.air_date}</p>
         <p>${episodeInfo.episode}</p>
+        </div>
         `; //Cacho de HTML con lo que queremos imprimir
 
     const renderEpisodeInfo = document.getElementById("sectionContainer") as HTMLDivElement; //Aquí queremos meter la info
@@ -50,11 +52,13 @@ async function printInfoEpi(click:MouseEvent) {
         const dataCharacter = await fetch(urlCharacter); 
         const characterInfo: Character = await dataCharacter.json(); //Volvemos a llamar a la api y convertimos en json
             const renderCharacterInfo = `
-            <p>${characterInfo.name}</p>
-            <p>${characterInfo.status}</p>
-            <p>${characterInfo.species}</p>
+            <div class="character-info">
+            <h3>${characterInfo.name}</h3>
+            <span>${characterInfo.status}</span>
+            <span>${characterInfo.species}</span>
             <p>${characterInfo.gender}</p>
             <img src=${characterInfo.image}>
+            </div>
             `; //Otro pegote
     renderEpisodeInfo.insertAdjacentHTML("beforeend", renderCharacterInfo); //Ahora la info del personaje al container
 
