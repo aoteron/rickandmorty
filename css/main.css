@@ -1,0 +1,92 @@
+/* @import url(); // font */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+/* body {
+    font-family: ;
+    color: #eee;
+    background-color: #60b347;
+} */
+
+header {
+    /* position:relative; */
+    max-width: 1800px;
+    height: 12rem;
+    margin:0 auto;
+    background-color: black;
+    display: flex;
+    text-align: center;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.main {
+    max-width: 1800px;
+    margin: 0 auto;
+    display: flex;
+    align-content: space-between;
+}
+
+.sidebar {
+    width: 30%;
+    height: calc(100vh - 12rem);
+    overflow-y: auto;
+    background-color: bisque;
+}
+
+.sidebar li {
+    color: black;
+    background-color: aqua;
+    height: 20rem;
+    /* padding: 0 0.7rem; */
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    list-style: none;
+    transition: all 0.2s;
+    cursor: pointer;
+    border-bottom: 1px solid white;
+}
+
+.sidebar li:hover {
+    background-color: blueviolet;
+    transform: translate(0%, 5px);
+}
+
+.loadMoreEpisodes {
+    background-color: chartreuse;
+    color: aliceblue;
+    height: 6rem;
+    width: 100%;
+    text-align: center;
+    border: navajowhite;
+    font-size: 3rem;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.loadMoreEpisodes:hover {
+    background-color: brown;
+}
+
+.sectionContainer {
+    width: 100%;
+    margin: 3rem;
+    padding: 1.5rem;
+    background-color: chocolate;
+    box-shadow: 0 0 10px color(srgb-linear red green blue);
+    text-align: center;
+}
+
+/* TABLET */
+
+/* MOBILE */
