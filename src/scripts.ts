@@ -1,52 +1,3 @@
-// import {Episode, Character, Location, PaginatedResponse} from "./interfaces"
-
-// const urlRMAPI = 'https://rickandmortyapi.com/api/episode';
-
-// const mainContainer = document.getElementById('mainContainer') as HTMLDivElement;
-// const btnLoadEpisodes = document.getElementById('loadMoreEpisodes') as HTMLButtonElement;
-
-// ////////////////////////////////////////////////
-
-// // const getEpisodeData = function () {
-// //     fetch(`https://rickandmortyapi.com/api/episode/`).then(function (
-// //         response
-// //         ) {
-// //             console.log(response);
-// //             return response.json();
-// //         }).then(function (data) {
-// //             console.log(data);
-// //         });
-// // };
-
-
-// const getEpisodeData = function () {
-//     fetch(`https://rickandmortyapi.com/api/episode/`)
-//     .then(response => response.json())
-//     .then(data => {
-//         // console.log(data);
-//         const episodes:Episode[] = data.results;
-//         episodes.forEach(episode => {
-//             // console.log(episode);
-//             const episodeName:string = episode.name;
-//             renderEpisodes (episodeName);
-//         })
-//         // console.log(episodes);
-//     })
-//     .catch(err => {
-//         console.error(`${err}`);
-//     })
-// };
-
-// getEpisodeData();
-
-
-// function renderEpisodes (episodeName:string) {
-//     const renderMainContainerWithEpisodes = document.createElement("li");
-//     renderMainContainerWithEpisodes.textContent = episodeName;
-//     mainContainer.appendChild(renderMainContainerWithEpisodes);
-// }
-
-//    C  I  D  O  N  C  H  A
 import { InfoAPI,Info,Episode,Character } from "./interfaces";
 const urlEpisodes = 'https://rickandmortyapi.com/api/episode';
 
@@ -62,7 +13,7 @@ async function printTitle(url: string) {
   const episodes: Episode[] = JSONdata.results;
 
   episodes.forEach((episode) => {
-    episodesList.insertAdjacentHTML('beforeend', `<li id='${episode.episode}' elementURL='${episode.url}'> ${episode.name}</li>`);
+    episodesList.insertAdjacentHTML('beforeend', `<li id='${episode.episode}' elementURL='${episode.url}'> Episode ${episode.id}</li>`);
     const clickEpisode = document.getElementById(`${episode.episode}`) as HTMLLIElement;
     clickEpisode.addEventListener('click', printInfoEpi);
   });
@@ -103,7 +54,7 @@ async function printInfoEpi(click:MouseEvent) {
             <p>${characterInfo.status}</p>
             <p>${characterInfo.species}</p>
             <p>${characterInfo.gender}</p>
-            <img src="${characterInfo.image}">
+            <img src=${characterInfo.image}>
             `; //Otro pegote
     renderEpisodeInfo.insertAdjacentHTML("beforeend", renderCharacterInfo); //Ahora la info del personaje al container
 
