@@ -17,8 +17,3 @@ body {
     display: flex;
     padding-inline: 15px;
 }
-
-section {
-    flex: 80%;
-    padding: 2rem;
-}
