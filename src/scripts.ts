@@ -33,33 +33,42 @@ async function printTitle(url: string) {
 }
 
 async function printInfoEpi(click:MouseEvent) {
-    const target = click.target as HTMLElement; // Guardamos el elemento de la lista
+    const target = click.target as HTMLLIElement; // Guardamos el elemento de la lista
     const urlEpisode = target.getAttribute("elementURL")!; // Atributo con la url del episodio
+
     const dataEpisode = await fetch(urlEpisode); //Llamamos a la api
     const episodeInfo: Episode = await dataEpisode.json(); //La hacemos legible
+
     const displayEpisodeInfo = `
         <div class="episode-info">
-        <h1>${episodeInfo.name}</h1>
-        <p>${episodeInfo.air_date}</p>
-        <p>${episodeInfo.episode}</p>
+          <h1>${episodeInfo.name}</h1>
+          <p>${episodeInfo.air_date}</p>
+          <p>${episodeInfo.episode}</p>
         </div>
         `; //Cacho de HTML con lo que queremos imprimir
 
-    const renderEpisodeInfo = document.getElementById("characterList") as HTMLDivElement; //Aquí queremos meter la info
+    const renderEpisodeInfo = document.getElementById("episodesContainerInfo") as HTMLDivElement; //Aquí queremos meter la info
+
     renderEpisodeInfo.innerHTML = displayEpisodeInfo; //Ahora la metemos
+
     const characters = episodeInfo.characters //Recuperamos los personajes con sus url
+
     characters.forEach(async urlCharacter => { //Recorremos el array de las url
+
         const dataCharacter = await fetch(urlCharacter); 
         const characterInfo: Character = await dataCharacter.json(); //Volvemos a llamar a la api y convertimos en json
+        
             const renderCharacterInfo = `
             <div class="character-info">
-            <h3>${characterInfo.name}</h3>
-            <span>${characterInfo.status}</span>
-            <span>${characterInfo.species}</span>
-            <p>${characterInfo.gender}</p>
-            <img src=${characterInfo.image}>
+              <img src=${characterInfo.image}>
+              <h3>${characterInfo.name}</h3>
+              <span>${characterInfo.status}</span>
+              <span>${characterInfo.species}</span>
+              <p>${characterInfo.gender}</p>
             </div>
             `; //Otro pegote
+
+    const renderEpisodeInfo = document.getElementById("characterList") as HTMLDivElement;
     renderEpisodeInfo.insertAdjacentHTML("beforeend", renderCharacterInfo); //Ahora la info del personaje al container
 
     });

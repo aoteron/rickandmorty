@@ -39,12 +39,12 @@ function printInfoEpi(click) {
         const episodeInfo = yield dataEpisode.json();
         const displayEpisodeInfo = `
         <div class="episode-info">
-        <h1>${episodeInfo.name}</h1>
-        <p>${episodeInfo.air_date}</p>
-        <p>${episodeInfo.episode}</p>
+          <h1>${episodeInfo.name}</h1>
+          <p>${episodeInfo.air_date}</p>
+          <p>${episodeInfo.episode}</p>
         </div>
         `;
-        const renderEpisodeInfo = document.getElementById("characterList");
+        const renderEpisodeInfo = document.getElementById("episodesContainerInfo");
         renderEpisodeInfo.innerHTML = displayEpisodeInfo;
         const characters = episodeInfo.characters;
         characters.forEach((urlCharacter) => __awaiter(this, void 0, void 0, function* () {
@@ -52,13 +52,14 @@ function printInfoEpi(click) {
             const characterInfo = yield dataCharacter.json();
             const renderCharacterInfo = `
             <div class="character-info">
-            <h3>${characterInfo.name}</h3>
-            <span>${characterInfo.status}</span>
-            <span>${characterInfo.species}</span>
-            <p>${characterInfo.gender}</p>
-            <img src=${characterInfo.image}>
+              <img src=${characterInfo.image}>
+              <h3>${characterInfo.name}</h3>
+              <span>${characterInfo.status}</span>
+              <span>${characterInfo.species}</span>
+              <p>${characterInfo.gender}</p>
             </div>
             `;
+            const renderEpisodeInfo = document.getElementById("characterList");
             renderEpisodeInfo.insertAdjacentHTML("beforeend", renderCharacterInfo);
         }));
     });

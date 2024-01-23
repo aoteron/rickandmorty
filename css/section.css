@@ -1,6 +1,5 @@
 section {
     flex: 80%;
-    padding: 2rem;
 }
 
 .section-container {
@@ -19,5 +18,21 @@ section {
 }
 
 .character-list {
+    height: calc(100vh - 21rem);
+    overflow-y: auto;
     display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1.6rem;
+}
+
+.character-list img {
+    border-radius: 0.6rem;
+    max-width: 180px;
+}
+
+.character-info {
+    border: 0.2rem solid black;
+    border-radius: 0.6rem;
 }
