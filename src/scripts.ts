@@ -53,6 +53,9 @@ async function printInfoEpi(click:MouseEvent) {
 
     const characters = episodeInfo.characters //Recuperamos los personajes con sus url
 
+    const renderCharacterCard = document.getElementById("characterList") as HTMLDivElement;
+    renderCharacterCard.innerHTML = " ";
+
     characters.forEach(async urlCharacter => { //Recorremos el array de las url
 
         const dataCharacter = await fetch(urlCharacter); 
@@ -60,7 +63,7 @@ async function printInfoEpi(click:MouseEvent) {
         
             const renderCharacterInfo = `
             <div class="character-info">
-              <img src=${characterInfo.image}>
+              <img src=${characterInfo.image} alt=${characterInfo.name}/>
               <h3>${characterInfo.name}</h3>
               <span>${characterInfo.status}</span>
               <span>${characterInfo.species}</span>
@@ -68,8 +71,9 @@ async function printInfoEpi(click:MouseEvent) {
             </div>
             `; //Otro pegote
 
-    const renderEpisodeInfo = document.getElementById("characterList") as HTMLDivElement;
-    renderEpisodeInfo.insertAdjacentHTML("beforeend", renderCharacterInfo); //Ahora la info del personaje al container
+
+    const renderCharacterCard = document.getElementById("characterList") as HTMLDivElement;
+    renderCharacterCard.insertAdjacentHTML("beforeend", renderCharacterInfo); //Ahora la info del personaje al container
 
     });
 

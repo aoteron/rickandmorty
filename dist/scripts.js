@@ -47,20 +47,22 @@ function printInfoEpi(click) {
         const renderEpisodeInfo = document.getElementById("episodesContainerInfo");
         renderEpisodeInfo.innerHTML = displayEpisodeInfo;
         const characters = episodeInfo.characters;
+        const renderCharacterCard = document.getElementById("characterList");
+        renderCharacterCard.innerHTML = " ";
         characters.forEach((urlCharacter) => __awaiter(this, void 0, void 0, function* () {
             const dataCharacter = yield fetch(urlCharacter);
             const characterInfo = yield dataCharacter.json();
             const renderCharacterInfo = `
             <div class="character-info">
-              <img src=${characterInfo.image}>
+              <img src=${characterInfo.image} alt=${characterInfo.name}/>
               <h3>${characterInfo.name}</h3>
               <span>${characterInfo.status}</span>
               <span>${characterInfo.species}</span>
               <p>${characterInfo.gender}</p>
             </div>
             `;
-            const renderEpisodeInfo = document.getElementById("characterList");
-            renderEpisodeInfo.insertAdjacentHTML("beforeend", renderCharacterInfo);
+            const renderCharacterCard = document.getElementById("characterList");
+            renderCharacterCard.insertAdjacentHTML("beforeend", renderCharacterInfo);
         }));
     });
 }
