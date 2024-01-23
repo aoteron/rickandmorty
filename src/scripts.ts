@@ -45,7 +45,7 @@ async function printInfoEpi(click:MouseEvent) {
         </div>
         `; //Cacho de HTML con lo que queremos imprimir
 
-    const renderEpisodeInfo = document.getElementById("sectionContainer") as HTMLDivElement; //Aquí queremos meter la info
+    const renderEpisodeInfo = document.getElementById("episodesContainerInfo") as HTMLDivElement; //Aquí queremos meter la info
     renderEpisodeInfo.innerHTML = displayEpisodeInfo; //Ahora la metemos
     const characters = episodeInfo.characters //Recuperamos los personajes con sus url
     characters.forEach(async urlCharacter => { //Recorremos el array de las url

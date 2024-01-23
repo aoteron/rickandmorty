@@ -44,7 +44,7 @@ function printInfoEpi(click) {
         <p>${episodeInfo.episode}</p>
         </div>
         `;
-        const renderEpisodeInfo = document.getElementById("sectionContainer");
+        const renderEpisodeInfo = document.getElementById("episodesContainerInfo");
         renderEpisodeInfo.innerHTML = displayEpisodeInfo;
         const characters = episodeInfo.characters;
         characters.forEach((urlCharacter) => __awaiter(this, void 0, void 0, function* () {
