@@ -1,7 +1,7 @@
 aside {
     position: relative;
     overflow-y: auto;
-    height: 44rem;
+    height: 46rem;
     max-height: 46rem;
     min-width: 16rem;
     z-index: 10000;

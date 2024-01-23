@@ -53,12 +53,12 @@ function printInfoEpi(click) {
             const dataCharacter = yield fetch(urlCharacter);
             const characterInfo = yield dataCharacter.json();
             const renderCharacterInfo = `
-            <div class="character-info">
-              <img src=${characterInfo.image} alt=${characterInfo.name}/>
-              <h3>${characterInfo.name}</h3>
-              <span>${characterInfo.status}</span>
-              <span>${characterInfo.species}</span>
-              <p>${characterInfo.gender}</p>
+          <div class="character-info">
+            <img src=${characterInfo.image} alt=${characterInfo.name}/>
+            <h3>${characterInfo.name}</h3>
+            <span>${characterInfo.status}</span>
+            <span>${characterInfo.species}</span>
+            <p>${characterInfo.gender}</p>
             </div>
             `;
             const renderCharacterCard = document.getElementById("characterList");
