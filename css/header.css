@@ -1,8 +1,16 @@
 header {
-    top: 0;
-    background-color: var(--primary-color);
+    background-image: linear-gradient(to bottom, #048C5A, #78A4B6);
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
+    align-items: center;
     height: 4.5rem;
     width: 100%;
+    border-bottom: 0.35rem solid black;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
   }
+
+header h1 {
+  color: white;
+  -webkit-text-stroke: 1px black;
+}
+
