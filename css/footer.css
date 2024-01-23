@@ -1,0 +1,12 @@
+footer {
+    text-align: right;
+    padding: 20px;
+    margin-right: 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    margin: 0px 0;
+}
