@@ -20,11 +20,13 @@ Sidebar: I set a green border in the sidebar but It does not fill the whole heig
 
 Calendar organization: I am getting used to flexibilize my calendar organization in case I get stucked or any external incident takes place. This time I have suffered two Internet breakdowns, the last one being on the delivery day.
 
+----------------------------------------------
+
 LESSONS LEARNED
 
-    ·Calling an API with async await method.
+·Calling an API with async await method.
 
-    ·Interfaces.
+·Interfaces.
 
-    ·Improving CSS skills.
+·Improving CSS skills.
 
