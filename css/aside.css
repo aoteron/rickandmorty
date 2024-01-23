@@ -1,0 +1,28 @@
+aside {
+    background-color: var(--primary-color);
+    overflow-y: auto;
+    max-height: 60rem;
+    z-index: 10000;
+}
+
+.sidebar-title {
+    font-size: 1.6rem;
+    justify-content: flex-start;
+}
+
+.episode-list {
+    font-size: 1.2rem;
+    list-style: none;
+}
+
+.episode-list li {
+    cursor: pointer;
+}
+
+.episode-list li:hover {
+    color: gray;
+}
+
+aside button {
+    margin: 1rem;
+}
