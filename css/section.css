@@ -7,7 +7,8 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-height: 40rem;
+    height: 44rem;
+    max-height: 46rem;
     overflow-y: auto;
     margin-top: 1.2rem;
     margin-left: 1.2rem;
@@ -15,6 +16,32 @@ section {
     border-radius: 0.4rem;
     border: 0.2rem solid black;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.welcome {
+    animation: blinkingText 1s infinite;
+    font-size: 2rem;    
+}
+    @keyframes blinkingText {
+        0% { color: transparent; }
+        50% { color: inherit; }
+        100% { color: transparent; }    
+    }
+
+.hide {
+    display: none;
+}
+
+.episode-info {
+    text-align: center;
+}
+
+.episode-info h1 {
+    font-size: 2rem;
+}
+
+.episode-info p {
+    font-size: 1.4rem;
 }
 
 .character-list {
@@ -28,11 +55,21 @@ section {
 }
 
 .character-list img {
-    border-radius: 0.6rem;
+    border-radius: 0.6rem 0.6rem 0 0;
     max-width: 180px;
 }
 
 .character-info {
     border: 0.2rem solid black;
     border-radius: 0.6rem;
+    text-align: center;
+    min-height: 293.4px;
+    max-width: 184px;
+    background-color: var(--bg-alternative-color);
 }
+
+.character-info h3 {
+    font-size: 1.2rem;
+}
+
+

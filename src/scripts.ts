@@ -74,7 +74,9 @@ async function printInfoEpi(click:MouseEvent) {
 
     const renderCharacterCard = document.getElementById("characterList") as HTMLDivElement;
     renderCharacterCard.insertAdjacentHTML("beforeend", renderCharacterInfo); //Ahora la info del personaje al container
-
     });
+
+    const welcome = document.getElementById("welcome");
+    welcome?.classList.add("hide");
 
 }

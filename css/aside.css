@@ -1,8 +1,9 @@
 aside {
     position: relative;
     overflow-y: auto;
-    max-height: 40rem;
-    min-width: 14rem;
+    height: 44rem;
+    max-height: 46rem;
+    min-width: 16rem;
     z-index: 10000;
     border-radius: 0.4rem;
     margin-top: 1.2rem;
@@ -51,7 +52,8 @@ aside button {
     cursor: pointer;
     border: 1px solid #1A0F26;
     border-radius: 12px;
-    margin: 10px;
+    margin-left: 15px;
+    margin-bottom: 10px;
     box-shadow: 2px 2px 0px 0px #1A0F26;
     font-size: 1.2rem;
 }

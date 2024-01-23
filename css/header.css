@@ -1,7 +1,6 @@
 header {
     background-image: linear-gradient(to bottom, #048C5A, #78A4B6);
     display: flex;
-    justify-content: center;
     align-items: center;
     height: 4.5rem;
     width: 100%;
@@ -12,5 +11,6 @@ header {
 header h1 {
   color: white;
   -webkit-text-stroke: 1px black;
+  margin-left: 2rem;
 }
 

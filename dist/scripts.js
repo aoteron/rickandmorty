@@ -64,6 +64,8 @@ function printInfoEpi(click) {
             const renderCharacterCard = document.getElementById("characterList");
             renderCharacterCard.insertAdjacentHTML("beforeend", renderCharacterInfo);
         }));
+        const welcome = document.getElementById("welcome");
+        welcome === null || welcome === void 0 ? void 0 : welcome.classList.add("hide");
     });
 }
 export {};
